@@ -238,6 +238,13 @@ public class TileEntityManager extends TileEntity implements ITileEntityInterfac
 		justSentServerComponentRemovalPacket = false;
 
 		if (!world.isRemote) {
+			for (FlowComponent item : items) {
+				if (item.getType() == ComponentType.TRIGGER && item.getConnectionSet() == ConnectionSet.TRIGGERED_LOOP && item.isRestartPending()) {
+					item.setRestartPending(false);
+					activateTrigger(item, EnumSet.of(ConnectionOption.INTERVAL));
+				}
+			}
+
 			if (timer >= 20) {
 				timer = 0;
 
@@ -291,6 +298,10 @@ public class TileEntityManager extends TileEntity implements ITileEntityInterfac
 		}
 //		System.out.println("Trigger");
 		new CommandExecutor(this).executeTriggerCommand(component, validTriggerOutputs);
+
+		if (component.getConnectionSet() == ConnectionSet.TRIGGERED_LOOP) {
+			component.setRestartPending(true);
+		}
 	}
 
 

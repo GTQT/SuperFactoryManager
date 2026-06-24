@@ -97,6 +97,7 @@ gui.sfm.ConnectionSetBud=方块更新感应器（BUD）
 gui.sfm.ConnectionSetOutputNode=输出节点
 gui.sfm.ConnectionSetInputNode=输入节点
 gui.sfm.ConnectionSetDynamic=动态
+gui.sfm.ConnectionSetTriggeredLoop=执行循环
 
 # ======================================
 #			COMPONENT MENUS

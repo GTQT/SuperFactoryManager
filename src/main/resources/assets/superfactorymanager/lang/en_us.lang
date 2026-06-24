@@ -97,6 +97,7 @@ gui.sfm.ConnectionSetBud=Block update detector
 gui.sfm.ConnectionSetOutputNode=Output Node
 gui.sfm.ConnectionSetInputNode=Input Node
 gui.sfm.ConnectionSetDynamic=Dynamic
+gui.sfm.ConnectionSetTriggeredLoop=Triggered loop
 
 # ======================================
 #			COMPONENT MENUS

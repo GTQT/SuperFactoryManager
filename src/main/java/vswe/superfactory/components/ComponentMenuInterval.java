@@ -4,6 +4,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import vswe.superfactory.Localization;
+import vswe.superfactory.components.internal.ConnectionSet;
 import vswe.superfactory.interfaces.ContainerManager;
 import vswe.superfactory.interfaces.GuiManager;
 import vswe.superfactory.network.packets.DataBitHelper;
@@ -128,6 +129,11 @@ public class ComponentMenuInterval extends ComponentMenu {
 
 	public void setInterval(int val) {
 		interval.setNumber(val);
+	}
+
+	@Override
+	public boolean isVisible() {
+		return getParent().getConnectionSet() != ConnectionSet.TRIGGERED_LOOP;
 	}
 
 	@Override

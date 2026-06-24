@@ -18,7 +18,8 @@ public enum ConnectionSet {
 	OUTPUT_NODE(Localization.CONNECTION_SET_OUTPUT_NODE, ConnectionOption.STANDARD_INPUT),
 	INPUT_NODE(Localization.CONNECTION_SET_INPUT_NODE, ConnectionOption.STANDARD_OUTPUT),
 	DYNAMIC(Localization.CONNECTION_SET_DYNAMIC, ConnectionOption.DYNAMIC_INPUT, ConnectionOption.DYNAMIC_INPUT, ConnectionOption.DYNAMIC_INPUT, ConnectionOption.DYNAMIC_INPUT, ConnectionOption.DYNAMIC_INPUT, ConnectionOption.DYNAMIC_OUTPUT, ConnectionOption.DYNAMIC_OUTPUT, ConnectionOption.DYNAMIC_OUTPUT, ConnectionOption.DYNAMIC_OUTPUT, ConnectionOption.DYNAMIC_OUTPUT),
-	CHAT(Localization.CONNECTION_SET_CHAT, ConnectionOption.STANDARD_OUTPUT);
+	CHAT(Localization.CONNECTION_SET_CHAT, ConnectionOption.STANDARD_OUTPUT),
+	TRIGGERED_LOOP(Localization.CONNECTION_SET_TRIGGERED_LOOP, ConnectionOption.INTERVAL);
 
 
 	private ConnectionOption[] connections;

@@ -103,6 +103,7 @@ public class FlowComponent implements IComponentNetworkReader, Comparable<FlowCo
 	private ConnectionSet            connectionSet;
 	private Map<Integer, Connection> connections;
 	private int                      currentInterval;
+	private boolean                  restartPending;
 	private int                      id;
 	private boolean                  isDragging;
 	private boolean                  isEditing;
@@ -268,6 +269,14 @@ public class FlowComponent implements IComponentNetworkReader, Comparable<FlowCo
 
 	public void setCurrentInterval(int currentInterval) {
 		this.currentInterval = currentInterval;
+	}
+
+	public boolean isRestartPending() {
+		return restartPending;
+	}
+
+	public void setRestartPending(boolean restartPending) {
+		this.restartPending = restartPending;
 	}
 
 	public int getX() {
@@ -631,6 +640,10 @@ public class FlowComponent implements IComponentNetworkReader, Comparable<FlowCo
 			}
 		}
 		this.connectionSet = connectionSet;
+
+		if (connectionSet == ConnectionSet.TRIGGERED_LOOP) {
+			restartPending = true;
+		}
 	}
 
 	public void removeConnection(int id) {
